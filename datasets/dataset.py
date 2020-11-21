@@ -40,7 +40,7 @@ def tokenize_de(text, spacy_de):
 
 
 def load_or_generate_dataset(batch_size=128):
-    # download_spacy_models()  # TODO check if need to download then do it
+    download_spacy_models()  # TODO check if need to download then do it
     spacy_en, spacy_de = load_tokenize_models()
 
     SRC = Field(tokenize=partial(tokenize_de, spacy_de=spacy_de),
