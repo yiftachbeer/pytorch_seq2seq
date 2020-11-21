@@ -39,7 +39,7 @@ def tokenize_de(text, spacy_de):
     return [tok.text for tok in spacy_de.tokenizer(text)]
 
 
-def load_or_generate_dataset(batch_size=64):
+def load_or_generate_dataset(batch_size=128):
     # download_spacy_models()  # TODO check if need to download then do it
     spacy_en, spacy_de = load_tokenize_models()
 
