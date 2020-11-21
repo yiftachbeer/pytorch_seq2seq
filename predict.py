@@ -1,9 +1,11 @@
-
+import torch
 from torchtext.data.example import Example
 
 from datasets.dataset import load_or_generate_dataset
 from utils import get_available_device
 from networks.network import create_seq2seq
+import logging
+logging.basicConfig(level='DEBUG')
 
 
 if __name__ == '__main__':
@@ -23,7 +25,7 @@ if __name__ == '__main__':
         'DEC_DROPOUT': 0.5
     }
     network = create_seq2seq(network_params, device)
-
+    network.load_state_dict(torch.load('weights/tut1-model.pt'))
 
     # sentence = input('Enter sentence in german: ')
     sentence = 'Ein Hund rennt im Schnee.'
